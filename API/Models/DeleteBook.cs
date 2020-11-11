@@ -1,4 +1,5 @@
 using System.Data.SQLite;
+using System.IO;
 using API.Models.Interfaces;
 
 namespace API.Models
@@ -7,7 +8,8 @@ namespace API.Models
     {
         public void RemoveBook(int id)
         {
-            string cs = @"URI=file:C:\Users\jslucas\source\repos\mis321\database\book.db";
+            string currentDir = Directory.GetCurrentDirectory();
+            string cs = "URI=file:"+currentDir + @"\Models\book.db";
             using var con = new SQLiteConnection(cs);
             con.Open();
 

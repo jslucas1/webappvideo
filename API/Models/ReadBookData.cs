@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using API.Models.Interfaces;
@@ -8,7 +10,8 @@ namespace API.Models
     {
         public List<Book> GetAllBooks()
                 {
-                    string cs = @"URI=file:C:\Users\jslucas\source\repos\mis321\database\book.db";
+                    string currentDir = Directory.GetCurrentDirectory();
+                    string cs = "URI=file:"+currentDir + @"\Models\book.db";
                     using var con = new SQLiteConnection(cs);
                     con.Open();
 
@@ -30,7 +33,8 @@ namespace API.Models
 
                 public Book GetBook(int id)
                 {
-                    string cs = @"URI=file:C:\Users\jslucas\source\repos\mis321\database\book.db";
+                    string currentDir = Directory.GetCurrentDirectory();
+                    string cs = "URI=file:"+currentDir + @"\Models\book.db";
                     using var con = new SQLiteConnection(cs);
                     con.Open();
 
