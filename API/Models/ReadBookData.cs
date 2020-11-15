@@ -11,7 +11,9 @@ namespace API.Models
         public List<Book> GetAllBooks()
                 {
                     string currentDir = Directory.GetCurrentDirectory();
-                    string cs = "URI=file:"+currentDir + @"\Models\book.db";
+                    //string cs = "URI=file:"+currentDir + @"\Models\book.db";
+                    string cs = "URI=file:"+currentDir + @"/book.db";
+                    Console.WriteLine("looking for the database here : " + cs);
                     using var con = new SQLiteConnection(cs);
                     con.Open();
 
@@ -22,6 +24,8 @@ namespace API.Models
                     using SQLiteDataReader rdr = cmd.ExecuteReader();
 
                     List<Book> allBooks = new List<Book>();
+                    // allBooks.Add(new Book(){Id=1,Title="Mistborn", Author="Brandon Sanderson"});
+                    // allBooks.Add(new Book(){Id=2,Title="Oathbringer", Author="Brandon Sanderson"});
                     while(rdr.Read())
                     {
 
