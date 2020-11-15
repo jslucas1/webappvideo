@@ -13,7 +13,7 @@ namespace API.Models
                     string currentDir = Directory.GetCurrentDirectory();
                     //string cs = "URI=file:"+currentDir + @"\Models\book.db";
                     string cs = "URI=file:"+currentDir + @"/book.db";
-                    Console.WriteLine("looking for the database here : " + cs);
+                    Console.WriteLine("looking for the database here without model : " + cs);
                     using var con = new SQLiteConnection(cs);
                     con.Open();
 
